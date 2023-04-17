@@ -48,6 +48,22 @@ def selection_sort(num_list, direction="vzestupne"):
 print(selection_sort(read_data("numbers.csv")["series_1"], "vzestupne"))
 
 
+def bubble_sort(num_list):
+
+    m = len(num_list)
+    while m > 0:
+        i = 1
+        while i < m:
+            if num_list[i - 1] > num_list[i]:
+                p = num_list.pop(i - 1)
+                num_list.insert(i, p)
+            i += 1
+        m -= 1
+    return num_list
+
+
+print(bubble_sort(read_data("numbers.csv")["series_3"]))
+
 
 def main():
     pass
