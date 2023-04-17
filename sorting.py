@@ -24,22 +24,28 @@ def read_data(file_name):
     return slovnik
 
 
-def selection_sort(num_list):
+def selection_sort(num_list, direction="vzestupne"):
     sorted_list = []
     while num_list:
         d = len(num_list)
         x = num_list[0]
         i = 1
-        while i < d:
-            if num_list[i] < x:
-                x = num_list[i]
-            i += 1
+        if direction == "vzestupne":
+            while i < d:
+                if num_list[i] < x:
+                    x = num_list[i]
+                i += 1
+        elif direction == "sestupne":
+            while i < d:
+                if num_list[i] > x:
+                    x = num_list[i]
+                i += 1
         sorted_list.append(x)
         num_list.remove(x)
     return sorted_list
 
 
-print(selection_sort(read_data("numbers.csv")["series_1"]))
+print(selection_sort(read_data("numbers.csv")["series_1"], "vzestupne"))
 
 
 
